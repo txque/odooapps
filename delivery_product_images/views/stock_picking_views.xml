@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- 1) Add image to the stock.picking move_ids_without_package tree (if present) -->
+    <record id="view_picking_form_inherit_product_image" model="ir.ui.view">
+      <field name="name">stock.picking.form.inherit.product.image</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="before">
+          <field name="product_image" widget="image" readonly="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- 2) Add image to the stock.move tree view directly -->
+    <record id="view_stock_move_tree_inherit_image" model="ir.ui.view">
+      <field name="name">stock.move.tree.inherit.product.image</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='product_id']" position="before">
+          <field name="product_image" widget="image" readonly="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- 3) Add image to the stock.move form (after product_id) -->
+    <record id="view_stock_move_form_inherit_image" model="ir.ui.view">
+      <field name="name">stock.move.form.inherit.image</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="product_image" widget="image" readonly="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- 4) Add image to the stock.move.line tree view directly (if exists) -->
+    <record id="view_stock_move_line_tree_inherit_image" model="ir.ui.view">
+      <field name="name">stock.move.line.tree.inherit.product.image</field>
+      <field name="model">stock.move.line</field>
+      <field name="inherit_id" ref="stock.view_move_line_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//tree/field[@name='product_id']" position="before">
+          <field name="product_image" widget="image" readonly="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- 5) Add image to stock.move.line form -->
+    <record id="view_stock_move_line_form_inherit_image" model="ir.ui.view">
+      <field name="name">stock.move.line.form.inherit.image</field>
+      <field name="model">stock.move.line</field>
+      <field name="inherit_id" ref="stock.view_move_line_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="product_image" widget="image" readonly="1"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Add QR code field to delivery order form view -->
+        <record id="view_picking_form_qr_code" model="ir.ui.view">
+            <field name="name">stock.picking.form.qr.code</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="qr_code_image" widget="image" 
+                           invisible="picking_type_code != 'outgoing'"
+                           options="{'size': [150, 150]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
