@@ -21,6 +21,9 @@ QR Code contains CSV data with:
     """,
     'author': 'kene offiah charles@procenix.com',
     'depends': ['stock', 'sale', 'delivery'],
+    'license': 'OPL-1',
+    'price': 13.90,
+    'currency': 'USD',
     'external_dependencies': {
         'python': ['qrcode', 'PIL'],
     },

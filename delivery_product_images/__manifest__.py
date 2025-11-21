@@ -10,6 +10,9 @@
     'author': 'kene offiah',
     'website': 'https://www.procenix.com',
     'depends': ['stock', 'product'],
+    'license': 'OPL-1',
+    'price': 11.90,
+    'currency': 'USD',
     'data': [
         'views/stock_picking_views.xml',
     ],
